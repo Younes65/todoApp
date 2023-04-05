@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
               elevation: 0,
               backgroundColor: Colors.white,
               title: Text(
-                'ToDo List',
+                '${cubit.text[cubit.currentIndex]}',
                 style: TextStyle(fontSize: 30, color: Colors.blueAccent),
               ),
               actions: [
