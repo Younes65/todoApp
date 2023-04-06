@@ -28,7 +28,7 @@ class _Tasks  extends State<NewTasks>{
               },
               child: Container(
                 color: cubit.selectedItem == index ? Colors.blueAccent : null,
-                child: taskTitle(cubit.finishedTask[index] , context),
+                child: taskTitle(model :cubit.finishedTask[index] , context: context),
               ),
             ),
             separatorBuilder: (context, index) {

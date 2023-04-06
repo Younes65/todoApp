@@ -15,7 +15,7 @@ class DataCubit extends Cubit<DataStates> {
 
   int currentIndex = 0;
   List<Widget> screens = [Tasks(), NewTasks(), ArchrivedTasks()];
-  List <String>text = ['ToDo List','Done List','Archived List'];
+  List <String>text = ['ToDo Tasks','Finished Tasks','Archived Tasks'];
 
   List<Map> task = [];
   List<Map> archivedTask = [];
@@ -100,6 +100,9 @@ class DataCubit extends Cubit<DataStates> {
     selectedItem = index;
     emit(SelectedItem());
   }
+
+
+
 
 // delete items from database
   void deleteFromDatabase(int n) async {

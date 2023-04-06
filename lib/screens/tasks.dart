@@ -16,12 +16,13 @@ class Tasks extends StatelessWidget {
                     onTap: () {
                       if(cubit.showIcon == false){
                         cubit.selectItem(true, index);
+                        print('${cubit.selectedItem}');
                       }
                      else cubit.selectItem(false, -1);
                     },
                     child: Container(
                       color: cubit.selectedItem == index ? Colors.blueAccent : null,
-                      child: taskTitle(cubit.task[index] ,context),
+                      child: taskTitle( model: cubit.task[index] ,context :context ,  icon: Icons.archive),
                     ),
                   ),
               separatorBuilder: (context, index) {

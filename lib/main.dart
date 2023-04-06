@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:sqflite/sqflite.dart';
 import 'package:widgets/Bloc/data_states.dart';
 import 'package:widgets/Bloc/data_cubit.dart';
 import 'package:widgets/Bloc/observer.dart';
@@ -44,9 +45,11 @@ class MyApp extends StatelessWidget {
                 if (cubit.showIcon)
                   IconButton(
                       onPressed: () {
-                        cubit.updateDatabase(
-                            'done', cubit.task[cubit.selectedItem]['id']);
-                        cubit.selectItem(false, -1);
+
+                          cubit.updateDatabase(
+                              'done', cubit.task[cubit.selectedItem]['id']);
+                          cubit.selectItem(false, -1);
+
                       },
                       icon: Icon(Icons.done))
               ],
@@ -198,10 +201,7 @@ class MyApp extends StatelessWidget {
                 ),
               ),
             ),
-            body: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: cubit.screens[cubit.currentIndex],
-            ),
+            body: cubit.screens[cubit.currentIndex],
           );
         },
       ),
