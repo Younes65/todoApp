@@ -22,7 +22,7 @@ class Tasks extends StatelessWidget {
                     },
                     child: Container(
                       color: cubit.selectedItem == index ? Colors.blueAccent : null,
-                      child: taskTitle( model: cubit.task[index] ,context :context ,  icon: Icons.archive),
+                      child: taskTitle( model: cubit.task[index] ,context :context ,  icon1: Icons.archive ,icon2: Icons.done),
                     ),
                   ),
               separatorBuilder: (context, index) {

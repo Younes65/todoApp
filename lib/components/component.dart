@@ -7,7 +7,8 @@ import 'package:widgets/Bloc/data_cubit.dart';
 Widget taskTitle({
   @required Map? model,
   @required BuildContext? context ,
-  IconData? icon
+  IconData? icon1,
+  IconData? icon2
 }) =>
     Padding(
       padding: const EdgeInsets.all(8.0),
@@ -41,7 +42,7 @@ Widget taskTitle({
 
           ),
           SizedBox(
-            width: 20,
+            width: 10,
           ),
           Expanded(
             child: Column(
@@ -62,24 +63,29 @@ Widget taskTitle({
                 )
               ],
             ),
-          ),SizedBox(
-            width: 10,
           ),
           IconButton(
               onPressed: (){
-                DataCubit.get(context).updateDatabase('archived', model!['id']);
+
+                if(icon1 == Icons.archive){
+                  DataCubit.get(context).updateDatabase('archived', model['id']);
+                }
+               else  DataCubit.get(context).updateDatabase('new', model['id']);
 
               },
-              icon: Icon(icon)),
-          SizedBox(
-            width: 10,
-          ),
+              icon: Icon(icon1)),
+
+          IconButton(
+              onPressed: (){
+                DataCubit.get(context).updateDatabase('done', model['id']);
+              },
+              icon: Icon(icon2)),
           IconButton(
               onPressed: (){
                 DataCubit.get(context).deleteFromDatabase( model!['id']);
-
               },
               icon: Icon(Icons.delete)),
+
         ],
       ),
     );
